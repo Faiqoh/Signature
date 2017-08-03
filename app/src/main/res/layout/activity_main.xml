@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="id.sch.smktelkom_mlg.learn.signature.MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama Perusahaan" />
+
+    <Spinner
+        android:id="@+id/spinnerNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/provinsi" />
 
     <LinearLayout
         android:id="@+id/buttons_container"
@@ -13,6 +24,7 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:paddingTop="16dp">
+
 
         <Button
             android:id="@+id/btnadmin"
@@ -29,6 +41,7 @@
             android:layout_weight="1"
             android:enabled="true"
             android:text="Customer" />
+
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>
