@@ -4,18 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:paddingBottom="16dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="16dp"
+    android:weightSum="1"
     tools:context="id.sch.smktelkom_mlg.learn.signature.MainActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama Perusahaan" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="0.08"
+        android:text="Nama Perusahaan"
+        android:textAppearance="@android:style/TextAppearance.Holo.Large" />
 
     <Spinner
         android:id="@+id/spinnerNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/provinsi" />
+        android:entries="@array/provinsi"
+        android:paddingTop="13dp" />
 
     <LinearLayout
         android:id="@+id/buttons_container"
