@@ -73,8 +73,6 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listNama);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(adapter);
-
 
 //        spinner. setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 //            @Override
@@ -114,14 +112,16 @@ public class MainActivity extends AppCompatActivity {
                                 String id = c.getString(TAG_ID);
                                 String nama_perusahaan = c.getString(TAG_NAMA);
 
+                                listNama.add(id);
+                                Log.i("ISI LISTITEM", listNama.toString());
                                 map = new HashMap<String, String>();
+
                                 map.put(TAG_ID, id);
                                 map.put(TAG_NAMA, nama_perusahaan);
-                                productsList.add(map);
 
-                                Log.i("ARRAY2", productsList.toString());
-
+                                Log.i("ARRAY2", listNama.toString());
                             }
+                            spinner.setAdapter(adapter);
 
                         } catch (JSONException e){
                             e.printStackTrace();
@@ -134,13 +134,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError volleyError) {
                         progressDialog.dismiss();
                         Toast.makeText(getApplication(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
-                        Log.i("ERRORNYA", volleyError.getMessage());
+//                        Log.i("ERRORNYA", volleyError.getMessage());
                     }
                 });
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-
-
 }
