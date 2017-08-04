@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner spinner;
 
+    String selected = "";
+
     ArrayList<String> listNama = new ArrayList<>();
     ArrayAdapter<String> adapter;
 
@@ -73,18 +75,19 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listNama);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        spinner.setAdapter(adapter);
 
-//        spinner. setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
+        spinner. setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selected = spinner.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 
@@ -112,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                                 String id = c.getString(TAG_ID);
                                 String nama_perusahaan = c.getString(TAG_NAMA);
 
-                                listNama.add(id);
+                                listNama.add(nama_perusahaan);
                                 Log.i("ISI LISTITEM", listNama.toString());
                                 map = new HashMap<String, String>();
 
@@ -121,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 Log.i("ARRAY2", listNama.toString());
                             }
-                            spinner.setAdapter(adapter);
+
 
                         } catch (JSONException e){
                             e.printStackTrace();
