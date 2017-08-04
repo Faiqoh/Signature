@@ -25,6 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class CustomerActivity extends AppCompatActivity {
@@ -34,6 +35,8 @@ public class CustomerActivity extends AppCompatActivity {
     private SignaturePad mSignaturePad;
     private Button ClearButton;
     private Button SaveButton;
+
+    ArrayList<String> listNama = new ArrayList<>();
 
     public static void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission

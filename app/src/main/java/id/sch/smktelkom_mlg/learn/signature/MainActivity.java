@@ -36,12 +36,17 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_ID = "id";
     private static final String TAG_NAMA = "nama_perusahaan";
 
+//    private static final String URL_DATA = "https://api.themoviedb.org/3/movie/now_playing?api_key=cc2b705c11164d940874ff87f19e62f4&language=en-US&page=1";
+//    public static final String ARRAY = "results";
+//    private static final String TAG_NAMA= "title";
+//    private static final String TAG_ID = "vote_average";
+
     ArrayList<HashMap<String, String>> productsList;
     HashMap<String, String> map;
 
     Spinner spinner;
 
-    String selected = "";
+    String selected;
 
     ArrayList<String> listNama = new ArrayList<>();
     ArrayAdapter<String> adapter;
@@ -89,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void loadRecyclerViewData() {
@@ -124,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 Log.i("ARRAY2", listNama.toString());
                             }
-
+                            spinner.setAdapter(adapter);
 
                         } catch (JSONException e){
                             e.printStackTrace();
