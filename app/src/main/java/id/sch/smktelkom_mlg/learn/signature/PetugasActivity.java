@@ -27,7 +27,7 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Main2Activity extends AppCompatActivity {
+public class PetugasActivity extends AppCompatActivity {
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -52,13 +52,13 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_petugas);
 
         mSignaturePad = (SignaturePad) findViewById(R.id.signature_pad);
         mSignaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
             @Override
             public void onStartSigning() {
-                Toast.makeText(Main2Activity.this, "OnStartSigning", Toast.LENGTH_SHORT).show();
+                Toast.makeText(PetugasActivity.this, "OnStartSigning", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -89,9 +89,9 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Bitmap signatureBitmap = mSignaturePad.getSignatureBitmap();
                 if (addJpgSignatureToGallery(signatureBitmap)) {
-                    Toast.makeText(Main2Activity.this, "Signature saved into the Gallery", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PetugasActivity.this, "Signature saved into the Gallery", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(Main2Activity.this, "Unable to store the signature", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PetugasActivity.this, "Unable to store the signature", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -108,7 +108,7 @@ public class Main2Activity extends AppCompatActivity {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length <= 0
                         || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(Main2Activity.this, "Cannot write images to external storage", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PetugasActivity.this, "Cannot write images to external storage", Toast.LENGTH_SHORT).show();
                 }
             }
         }
@@ -155,7 +155,7 @@ public class Main2Activity extends AppCompatActivity {
         Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         Uri contentUri = Uri.fromFile(photo);
         mediaScanIntent.setData(contentUri);
-        Main2Activity.this.sendBroadcast(mediaScanIntent);
+        PetugasActivity.this.sendBroadcast(mediaScanIntent);
     }
 
     /*public boolean addSvgSignatureToGallery(String signatureSvg) {

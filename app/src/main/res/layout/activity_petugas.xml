@@ -1,4 +1,4 @@
-<!--<ScrollView android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--xmlns:android="http://schemas.android.com/apk/res/android">-->
+<?xml version="1.0" encoding="utf-8"?><!--<ScrollView android:layout_width="match_parent"--><!--android:layout_height="match_parent"--><!--xmlns:android="http://schemas.android.com/apk/res/android">-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,7 +7,7 @@
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:paddingTop="10dp"
-    tools:context="id.sch.smktelkom_mlg.learn.signature.Main3Activity">
+    tools:context="id.sch.smktelkom_mlg.learn.signature.PetugasActivity">
 
     <RelativeLayout
         android:id="@+id/signature_pad_container"
@@ -51,4 +51,4 @@
             android:text="Save Signature" />
     </LinearLayout>
 
-</RelativeLayout><!--</ScrollView>-->
+</RelativeLayout>

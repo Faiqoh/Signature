@@ -24,8 +24,13 @@
         android:id="@+id/spinnerNama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/provinsi"
         android:paddingTop="13dp" />
+
+    <TextView
+        android:id="@+id/textViewNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.10" />
 
     <LinearLayout
         android:id="@+id/buttons_container"
