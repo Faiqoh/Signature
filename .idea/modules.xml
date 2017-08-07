@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyApplication2.iml" filepath="$PROJECT_DIR$/MyApplication2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Signature.iml" filepath="$PROJECT_DIR$/Signature.iml" />
       <module fileurl="file://$PROJECT_DIR$/TTD EDII 2.iml" filepath="$PROJECT_DIR$/TTD EDII 2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/signature.iml" filepath="$PROJECT_DIR$/signature.iml" />
     </modules>
   </component>
 </project>
