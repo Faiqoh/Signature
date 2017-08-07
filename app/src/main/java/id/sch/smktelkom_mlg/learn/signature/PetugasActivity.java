@@ -33,7 +33,7 @@ public class PetugasActivity extends AppCompatActivity {
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private SignaturePad mSignaturePad;
     private Button ClearButton;
-    private Button SaveButton, NextButton;
+    private Button SaveButton;
 
     public static void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
@@ -67,20 +67,17 @@ public class PetugasActivity extends AppCompatActivity {
             public void onSigned() {
                 SaveButton.setEnabled(true);
                 ClearButton.setEnabled(true);
-                NextButton.setEnabled(true);
             }
 
             @Override
             public void onClear() {
                 SaveButton.setEnabled(false);
                 ClearButton.setEnabled(false);
-                NextButton.setEnabled(false);
             }
         });
 
         ClearButton = (Button) findViewById(R.id.btnclear);
         SaveButton = (Button) findViewById(R.id.btnsave);
-        NextButton = (Button) findViewById(R.id.btnnext);
 
         ClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,19 +92,14 @@ public class PetugasActivity extends AppCompatActivity {
                 Bitmap signatureBitmap = mSignaturePad.getSignatureBitmap();
                 if (addJpgSignatureToGallery(signatureBitmap)) {
                     Toast.makeText(PetugasActivity.this, "Signature saved into the Gallery", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(PetugasActivity.this, CustomerActivity.class));
                 } else {
                     Toast.makeText(PetugasActivity.this, "Unable to store the signature", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 
-        findViewById(R.id.btnnext).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PetugasActivity.this, CustomerActivity.class));
-            }
-        });
+
     }
 
     @Override

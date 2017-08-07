@@ -48,15 +48,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:enabled="false"
-            android:text="Save" />
-
-        <Button
-            android:id="@+id/btnfinish"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:enabled="false"
             android:text="Finish" />
+
     </LinearLayout>
 
 </RelativeLayout><!--</ScrollView>-->

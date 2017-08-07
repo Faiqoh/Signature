@@ -67,21 +67,18 @@ public class CustomerActivity extends AppCompatActivity {
             public void onSigned() {
                 SaveButton.setEnabled(true);
                 ClearButton.setEnabled(true);
-                FinishButton.setEnabled(true);
             }
 
             @Override
             public void onClear() {
                 SaveButton.setEnabled(false);
                 ClearButton.setEnabled(false);
-                FinishButton.setEnabled(false);
             }
 
         });
 
         ClearButton = (Button) findViewById(R.id.btnclear);
         SaveButton = (Button) findViewById(R.id.btnsave);
-        FinishButton = (Button) findViewById(R.id.btnfinish);
 
         ClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,17 +93,11 @@ public class CustomerActivity extends AppCompatActivity {
                 Bitmap signatureBitmap = mSignaturePad.getSignatureBitmap();
                 if (addJpgSignatureToGallery(signatureBitmap)) {
                     Toast.makeText(CustomerActivity.this, "Signature saved into the Gallery", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(CustomerActivity.this, MainActivity.class));
                 } else {
                     Toast.makeText(CustomerActivity.this, "Unable to store the signature", Toast.LENGTH_SHORT).show();
                 }
 
-            }
-        });
-
-        findViewById(R.id.btnfinish).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(CustomerActivity.this, MainActivity.class));
             }
         });
     }
