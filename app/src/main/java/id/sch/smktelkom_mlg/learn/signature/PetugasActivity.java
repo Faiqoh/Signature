@@ -27,15 +27,13 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import id.sch.smktelkom_mlg.learn.signature.model.Perusahaan;
-
 public class PetugasActivity extends AppCompatActivity {
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private SignaturePad mSignaturePad;
     private Button ClearButton;
-    private Button SaveButton;
+    private Button SaveButton, NextButton;
 
     public static void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
@@ -56,7 +54,7 @@ public class PetugasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_petugas);
 
-        Perusahaan perusahaan = (Perusahaan) getIntent().getSerializableExtra(MainActivity.PERUSAHAAN);
+//        Perusahaan perusahaan = (Perusahaan) getIntent().getSerializableExtra(MainActivity.PERUSAHAAN);
 
         mSignaturePad = (SignaturePad) findViewById(R.id.signature_pad);
         mSignaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
@@ -69,17 +67,20 @@ public class PetugasActivity extends AppCompatActivity {
             public void onSigned() {
                 SaveButton.setEnabled(true);
                 ClearButton.setEnabled(true);
+                NextButton.setEnabled(true);
             }
 
             @Override
             public void onClear() {
                 SaveButton.setEnabled(false);
                 ClearButton.setEnabled(false);
+                NextButton.setEnabled(false);
             }
         });
 
         ClearButton = (Button) findViewById(R.id.btnclear);
         SaveButton = (Button) findViewById(R.id.btnsave);
+        NextButton = (Button) findViewById(R.id.btnnext);
 
         ClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,8 +100,13 @@ public class PetugasActivity extends AppCompatActivity {
                 }
 
             }
+        });
 
-
+        findViewById(R.id.btnnext).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(PetugasActivity.this, CustomerActivity.class));
+            }
         });
     }
 

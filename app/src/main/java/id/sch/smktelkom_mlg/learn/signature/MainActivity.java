@@ -15,22 +15,22 @@ import id.sch.smktelkom_mlg.learn.signature.model.Perusahaan;
 public class MainActivity extends AppCompatActivity implements PerusahaanAdapter.IPerusahaaAdapter {
     public static final String PERUSAHAAN = "perusahaan";
 
-//    private static final String URL_DATA = "http://192.168.11.137/edii/activity-report-edii/androidsql/get_data.php";
-//    public static final String ARRAY = "activity";
-//    private static final String TAG_ID = "id";
-//    private static final String TAG_NAMA = "nama_perusahaan";
+    /*private static final String URL_DATA = "http://192.168.11.137/edii/activity-report-edii/androidsql/get_data.php";
+    public static final String ARRAY = "activity";
+    private static final String TAG_ID = "id";
+    private static final String TAG_NAMA = "nama_perusahaan";
 
-//    private static final String URL_DATA = "https://api.themoviedb.org/3/movie/now_playing?api_key=cc2b705c11164d940874ff87f19e62f4&language=en-US&page=1";
-//    public static final String ARRAY = "results";
-//    private static final String TAG_NAMA= "title";
-//    private static final String TAG_ID = "vote_average";
+    private static final String URL_DATA = "https://api.themoviedb.org/3/movie/now_playing?api_key=cc2b705c11164d940874ff87f19e62f4&language=en-US&page=1";
+    public static final String ARRAY = "results";
+    private static final String TAG_NAMA= "title";
+    private static final String TAG_ID = "vote_average";
 
-//    ArrayList<HashMap<String, String>> productsList;
-//    HashMap<String, String> map;
+    ArrayList<HashMap<String, String>> productsList;
+    HashMap<String, String> map;
 
-//
-//    ArrayList<String> listNama = new ArrayList<>();
-//    ArrayAdapter<String> adapter;
+
+    ArrayList<String> listNama = new ArrayList<>();
+    ArrayAdapter<String> adapter;*/
 
     ArrayList<Perusahaan> mList = new ArrayList<>();
     PerusahaanAdapter mAdapter;
@@ -50,21 +50,21 @@ public class MainActivity extends AppCompatActivity implements PerusahaanAdapter
         fillData();
 
 
-//        findViewById(R.id.btnadmin).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, PetugasActivity.class));
-//            }
-//        });
-//
-//        findViewById(R.id.btncs).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                startActivity(new Intent(MainActivity.this, CustomerActivity.class));
-//            }
-//        });
+        /*findViewById(R.id.btnadmin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PetugasActivity.class));
+            }
+        });
 
-//        loadRecyclerViewData();
+        findViewById(R.id.btncs).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CustomerActivity.class));
+            }
+        });
+
+        loadRecyclerViewData();*/
 
 
     }
@@ -80,57 +80,57 @@ public class MainActivity extends AppCompatActivity implements PerusahaanAdapter
     }
 
     private void loadRecyclerViewData() {
-//        final ProgressDialog progressDialog = new ProgressDialog(this);
-//        progressDialog.setMessage("Loading data...");
-//        progressDialog.show();
-//
-//        StringRequest stringRequest = new StringRequest(Request.Method.GET,
-//                URL_DATA,
-//                new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String s) {
-//                        progressDialog.dismiss();
-//                        try{
-//                            JSONObject jsonObject = new JSONObject(s);
-//                            JSONArray array = jsonObject.getJSONArray(ARRAY);
-//
-//                            Log.i("ARRAY1", array.toString());
-//
-//
-//                            for(int i = 0; i < array.length(); i++) {
-//                                JSONObject c = array.getJSONObject(i);
-//
-//                                String id = c.getString(TAG_ID);
-//                                String nama_perusahaan = c.getString(TAG_NAMA);
-//
-//                                listNama.add(nama_perusahaan);
-//                                Log.i("ISI LISTITEM", listNama.toString());
-//                                map = new HashMap<String, String>();
-//
-//                                map.put(TAG_ID, id);
-//                                map.put(TAG_NAMA, nama_perusahaan);
-//
-//                                Log.i("ARRAY2", listNama.toString());
-//                            }
-//                            spinner.setAdapter(adapter);
-//
-//                        } catch (JSONException e){
-//                            e.printStackTrace();
-//                        }
-//
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError volleyError) {
-//                        progressDialog.dismiss();
-//                        Toast.makeText(getApplication(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
-//                        Log.i("ERRORNYA", volleyError.getMessage());
-//                    }
-//                });
-//
-//        RequestQueue requestQueue = Volley.newRequestQueue(this);
-//        requestQueue.add(stringRequest);
+        /*final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading data...");
+        progressDialog.show();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET,
+                URL_DATA,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        progressDialog.dismiss();
+                        try{
+                            JSONObject jsonObject = new JSONObject(s);
+                            JSONArray array = jsonObject.getJSONArray(ARRAY);
+
+                            Log.i("ARRAY1", array.toString());
+
+
+                            for(int i = 0; i < array.length(); i++) {
+                                JSONObject c = array.getJSONObject(i);
+
+                                String id = c.getString(TAG_ID);
+                                String nama_perusahaan = c.getString(TAG_NAMA);
+
+                                listNama.add(nama_perusahaan);
+                                Log.i("ISI LISTITEM", listNama.toString());
+                                map = new HashMap<String, String>();
+
+                                map.put(TAG_ID, id);
+                                map.put(TAG_NAMA, nama_perusahaan);
+
+                                Log.i("ARRAY2", listNama.toString());
+                            }
+                            spinner.setAdapter(adapter);
+
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        progressDialog.dismiss();
+                        Toast.makeText(getApplication(), volleyError.getMessage(), Toast.LENGTH_LONG).show();
+                        Log.i("ERRORNYA", volleyError.getMessage());
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);*/
     }
 
     @Override

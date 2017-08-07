@@ -32,11 +32,10 @@ public class CustomerActivity extends AppCompatActivity {
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    ArrayList<String> listNama = new ArrayList<>();
     private SignaturePad mSignaturePad;
     private Button ClearButton;
-    private Button SaveButton;
-
-    ArrayList<String> listNama = new ArrayList<>();
+    private Button SaveButton, FinishButton;
 
     public static void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
@@ -68,17 +67,21 @@ public class CustomerActivity extends AppCompatActivity {
             public void onSigned() {
                 SaveButton.setEnabled(true);
                 ClearButton.setEnabled(true);
+                FinishButton.setEnabled(true);
             }
 
             @Override
             public void onClear() {
                 SaveButton.setEnabled(false);
                 ClearButton.setEnabled(false);
+                FinishButton.setEnabled(false);
             }
+
         });
 
         ClearButton = (Button) findViewById(R.id.btnclear);
         SaveButton = (Button) findViewById(R.id.btnsave);
+        FinishButton = (Button) findViewById(R.id.btnfinish);
 
         ClearButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +100,13 @@ public class CustomerActivity extends AppCompatActivity {
                     Toast.makeText(CustomerActivity.this, "Unable to store the signature", Toast.LENGTH_SHORT).show();
                 }
 
+            }
+        });
+
+        findViewById(R.id.btnfinish).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CustomerActivity.this, MainActivity.class));
             }
         });
     }
