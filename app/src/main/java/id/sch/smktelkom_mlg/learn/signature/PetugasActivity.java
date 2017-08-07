@@ -27,6 +27,8 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import id.sch.smktelkom_mlg.learn.signature.model.Perusahaan;
+
 public class PetugasActivity extends AppCompatActivity {
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -53,6 +55,8 @@ public class PetugasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_petugas);
+
+        Perusahaan perusahaan = (Perusahaan) getIntent().getSerializableExtra(MainActivity.PERUSAHAAN);
 
         mSignaturePad = (SignaturePad) findViewById(R.id.signature_pad);
         mSignaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {

@@ -1,5 +1,6 @@
 package id.sch.smktelkom_mlg.learn.signature;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +12,8 @@ import java.util.ArrayList;
 import id.sch.smktelkom_mlg.learn.signature.adapter.PerusahaanAdapter;
 import id.sch.smktelkom_mlg.learn.signature.model.Perusahaan;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements PerusahaanAdapter.IPerusahaaAdapter {
+    public static final String PERUSAHAAN = "perusahaan";
 
 //    private static final String URL_DATA = "http://192.168.11.137/edii/activity-report-edii/androidsql/get_data.php";
 //    public static final String ARRAY = "activity";
@@ -26,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
 //    ArrayList<HashMap<String, String>> productsList;
 //    HashMap<String, String> map;
 
-//    Spinner spinner;
-//
-//    String selected;
 //
 //    ArrayList<String> listNama = new ArrayList<>();
 //    ArrayAdapter<String> adapter;
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new PerusahaanAdapter(mList);
+        mAdapter = new PerusahaanAdapter(this, mList);
         recyclerView.setAdapter(mAdapter);
 
         fillData();
@@ -74,11 +73,6 @@ public class MainActivity extends AppCompatActivity {
         Resources resources = getResources();
         String[] arNama = resources.getStringArray(R.array.places);
         String[] arKeluhan = resources.getStringArray(R.array.place_desc);
-//        TypedArray a = resources.obtainTypedArray(R.array.places_picture);
-//        Drawable[] arFoto = new Drawable[a.length()];
-//        for (int i = 0; i < arFoto.length; i++) {
-//            arFoto[i] = a.getDrawable(i);
-//        }
         for (int i = 0; i < arNama.length; i++) {
             mList.add(new Perusahaan(arNama[i], arKeluhan[i]));
         }
@@ -137,5 +131,12 @@ public class MainActivity extends AppCompatActivity {
 //
 //        RequestQueue requestQueue = Volley.newRequestQueue(this);
 //        requestQueue.add(stringRequest);
+    }
+
+    @Override
+    public void doClick(int pos) {
+        Intent intent = new Intent(this, PetugasActivity.class);
+        intent.putExtra(PERUSAHAAN, mList.get(pos));
+        startActivity(intent);
     }
 }

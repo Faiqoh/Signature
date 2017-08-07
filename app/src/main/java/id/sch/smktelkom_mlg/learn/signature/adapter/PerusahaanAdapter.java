@@ -1,5 +1,6 @@
 package id.sch.smktelkom_mlg.learn.signature.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,9 +19,11 @@ import id.sch.smktelkom_mlg.learn.signature.model.Perusahaan;
 public class PerusahaanAdapter extends RecyclerView.Adapter<PerusahaanAdapter.ViewHolder> {
 
     ArrayList<Perusahaan> perusahaanList;
+    IPerusahaaAdapter mIPerusahaanAdapter;
 
-    public PerusahaanAdapter(ArrayList<Perusahaan> perusahaanList) {
+    public PerusahaanAdapter(Context context, ArrayList<Perusahaan> perusahaanList) {
         this.perusahaanList = perusahaanList;
+        mIPerusahaanAdapter = (IPerusahaaAdapter) context;
     }
 
     @Override
@@ -45,6 +48,10 @@ public class PerusahaanAdapter extends RecyclerView.Adapter<PerusahaanAdapter.Vi
         return 0;
     }
 
+    public interface IPerusahaaAdapter {
+        void doClick(int pos);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         //ImageView ivFoto;
         TextView tvNama;
@@ -55,6 +62,14 @@ public class PerusahaanAdapter extends RecyclerView.Adapter<PerusahaanAdapter.Vi
             //ivFoto = (ImageView) itemView.findViewById(R.id.imageView);
             tvNama = (TextView) itemView.findViewById(R.id.textViewNama);
             tvKeluhan = (TextView) itemView.findViewById(R.id.textViewKeluhan);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mIPerusahaanAdapter.doClick(getAdapterPosition());
+                }
+            });
+
         }
     }
 }
