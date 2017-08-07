@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class PerusahaanAdapter extends RecyclerView.Adapter<PerusahaanAdapter.Vi
         Perusahaan perusahaan = perusahaanList.get(position);
         holder.tvNama.setText(perusahaan.nama);
         holder.tvKeluhan.setText(perusahaan.keluhan);
-        holder.ivFoto.setImageDrawable(perusahaan.foto);
+        //holder.ivFoto.setImageDrawable(perusahaan.foto);
     }
 
     @Override
@@ -47,13 +46,13 @@ public class PerusahaanAdapter extends RecyclerView.Adapter<PerusahaanAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivFoto;
+        //ImageView ivFoto;
         TextView tvNama;
         TextView tvKeluhan;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            ivFoto = (ImageView) itemView.findViewById(R.id.imageView);
+            //ivFoto = (ImageView) itemView.findViewById(R.id.imageView);
             tvNama = (TextView) itemView.findViewById(R.id.textViewNama);
             tvKeluhan = (TextView) itemView.findViewById(R.id.textViewKeluhan);
         }

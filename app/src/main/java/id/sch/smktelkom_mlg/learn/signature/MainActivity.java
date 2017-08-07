@@ -1,8 +1,6 @@
 package id.sch.smktelkom_mlg.learn.signature;
 
 import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -76,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
         Resources resources = getResources();
         String[] arNama = resources.getStringArray(R.array.places);
         String[] arKeluhan = resources.getStringArray(R.array.place_desc);
-        TypedArray a = resources.obtainTypedArray(R.array.places_picture);
-        Drawable[] arFoto = new Drawable[a.length()];
-        for (int i = 0; i < arFoto.length; i++) {
-            arFoto[i] = a.getDrawable(i);
-        }
+//        TypedArray a = resources.obtainTypedArray(R.array.places_picture);
+//        Drawable[] arFoto = new Drawable[a.length()];
+//        for (int i = 0; i < arFoto.length; i++) {
+//            arFoto[i] = a.getDrawable(i);
+//        }
         for (int i = 0; i < arNama.length; i++) {
-            mList.add(new Perusahaan(arNama[i], arKeluhan[i], arFoto[i]));
+            mList.add(new Perusahaan(arNama[i], arKeluhan[i]));
         }
         mAdapter.notifyDataSetChanged();
     }
